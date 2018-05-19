@@ -39,14 +39,15 @@ class CartApiController extends Controller
             $productId = $request->input('product_id');
             $productsAmount = $request->input('quantity');
 
-            if(($cart->itemsInCart($cart->id) + $productsAmount) <=3 ){
+            if(((int)($cart->itemsInCart($cart->id)) + (int)$productsAmount) <=3){
                 if($cart->save()) {
                     $cart->products()->attach($productId);
                     $cart->products()->updateExistingPivot($productId, ['quantity' => $productsAmount]);
                     return new CartResource($cart);
                 }
             } else {
-                return 'Your cart is full';
+                $resource = new CartResource($cart);
+                return $resource->response()->setStatusCode(403);
             }
 
 
