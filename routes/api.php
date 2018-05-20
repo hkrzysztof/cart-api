@@ -51,18 +51,3 @@ Route::delete('cart', 'CartApiController@store');
 
 // Delete a cart
 Route::delete('cart/{id}', 'CartApiController@destroy');
-
-Route::get('test', function() {
-    $cart = Cart::find(1);
-//    dd($cart->products);
-//    $itemsAmount = '';
-//    $itemsTotal ='';
-//    foreach ($cart->products as $product){
-//        $itemsAmount = (int)$itemsAmount + (int)$product->pivot->quantity;
-//        $itemsTotal = (float)$itemsTotal + ((int)$product->pivot->quantity * (float)$product->price);
-//    }
-//    echo $itemsAmount;
-//    echo '<br>';
-//    echo $itemsTotal;
-    dd($cart->products[0]->pivot->quantity);
-});

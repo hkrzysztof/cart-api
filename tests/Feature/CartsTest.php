@@ -96,4 +96,33 @@ class CartsTest extends TestCase
                 ]
             ]);
     }
+
+    public function testCreatingANewCartWithAProduct()
+    {
+        $product = [
+            'product_id' => 2,
+            'quantity' => 1
+        ];
+
+        $this->json('POST', 'http://gogshop.local/api/cart', $product)
+            ->assertStatus(201)
+            ->assertJson([
+                "data" => [
+                    'items_in_cart' => '1',
+                    'total_price' => "2.99 USD"
+                ]
+            ]);
+    }
+
+    public function testCreatingANewCartWithTooManyProducts()
+    {
+        $product = [
+            'product_id' => 2,
+            'quantity' => 4
+        ];
+
+        $this->json('POST', 'http://gogshop.local/api/cart', $product)
+            ->assertStatus(403);
+    }
+
 }

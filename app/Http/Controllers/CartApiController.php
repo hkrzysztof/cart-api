@@ -65,7 +65,7 @@ class CartApiController extends Controller
                     return new CartResource($cart);
                 }
             } else {
-                return 'You can add max 3 products to your cart';
+                return abort(403);
             }
 
 
