@@ -11,8 +11,8 @@ This application consists of 2 APIS: Products and Carts joined by Many To Many r
 3. Download this repository and unzip to your web server /public folder
 4. Create database
 4. Open .env.example file, rename it to .env and:
-    4.1. Run ```php artisan key:generate``` in your terminal
-    4.2. Put the obtained key in APP_KEY
+4.1. Run ```php artisan key:generate``` in your terminal
+4.2. Put the obtained key in APP_KEY
     4.3. Fill in DB_DATABASE, DB_USERNAME, DB_PASSWORD
 5. run ```npm install``` in the app folder terminal to install all dependencies
 6. Ready to use
