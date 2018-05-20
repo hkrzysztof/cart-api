@@ -38,6 +38,8 @@ This application consists of 2 APIS: Products and Carts joined by Many To Many r
 ```
 
 ## Error Codes
+```
 200 - OK
 201 - Created
 403 - Forbidden
+```
